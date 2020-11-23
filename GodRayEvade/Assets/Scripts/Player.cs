@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public int damage;
 
-    public HealthBarPlayer1 healthBar;
+    public HealthBarPlayer healthBar;
     void Start()
     {
         currentHealth = maxHealth;
@@ -18,17 +18,12 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay(Collision col)
     {
-        if (col.gameObject.name == "RayPlayer2")
+        //TODO
+        /**if (col.gameObject.name == "RayPlayer2")
         {
-            //StartCoroutine (WaitForSeconds());
             TakeDamage(damage);
-        }
+        }**/
     }
-    
-    /*IEnumerator WaitForSeconds()
-    {
-        yield return new WaitForSecondsRealtime (0.5f);
-    }*/
 
     void TakeDamage(int damages)
     {
@@ -36,7 +31,4 @@ public class Player : MonoBehaviour
         
         healthBar.SetHealth(currentHealth);
     }
-
-
-   
 }
