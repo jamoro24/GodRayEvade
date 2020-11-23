@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using MLAPI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : NetworkedBehaviour
 {
     public float speed = 2f;
 
@@ -17,6 +18,16 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(move * Time.fixedDeltaTime * speed);
+        if(IsOwner)
+        {
+            if(IsServer)
+            {
+                transform.Translate(-move * Time.fixedDeltaTime * speed);
+            }
+            else
+            {
+                transform.Translate(move * Time.fixedDeltaTime * speed);
+            }
+        }
     }
 }
