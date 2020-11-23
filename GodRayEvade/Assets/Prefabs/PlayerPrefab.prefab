@@ -350,12 +350,12 @@ GameObject:
   - component: {fileID: 1787706699083511960}
   - component: {fileID: 1787706699083511961}
   - component: {fileID: 1787706699083511962}
-  - component: {fileID: 1787706699083511963}
   - component: {fileID: 1787706699083511956}
   - component: {fileID: 1787706699083511967}
   - component: {fileID: 1145229996590452241}
   - component: {fileID: 4034366489197503006}
   - component: {fileID: 828041477815075682}
+  - component: {fileID: 4316950867808383934}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -439,22 +439,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1787706699083511963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787706699083511958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65cfcc7c1f8e8be4295c337fe70286af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1000
-  currentHealth: 0
-  damage: 1
-  healthBar: {fileID: 1787706699105482293}
 --- !u!114 &1787706699083511956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +551,22 @@ MonoBehaviour:
     type: 3}
   player1Material: {fileID: 2100000, guid: d482813f6220a074192ced565b81ffb9, type: 2}
   player2Material: {fileID: 2100000, guid: 9e8282021fce1e04e8981ef284c66472, type: 2}
+--- !u!114 &4316950867808383934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787706699083511958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65cfcc7c1f8e8be4295c337fe70286af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1000
+  currentHealth: 0
+  damage: 1
+  healthBar: {fileID: 1787706699105482293}
 --- !u!1 &1787706699105482295
 GameObject:
   m_ObjectHideFlags: 0

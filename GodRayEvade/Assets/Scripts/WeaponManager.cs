@@ -16,6 +16,8 @@ public class WeaponManager : NetworkedBehaviour
 
     private GameObject spotLight;
 
+    private int player;
+
     void Start()
     {
         if (IsServer)
@@ -69,8 +71,18 @@ public class WeaponManager : NetworkedBehaviour
         }
     }
 
-    public void asignSpotLight(GameObject pSpotLight)
+    public void assignSpotLight(GameObject pSpotLight)
     {
         spotLight = pSpotLight;
+    }
+
+    public void assignPlayer(int pPlayer)
+    {
+        player = pPlayer;
+    }
+
+    public int getPlayer()
+    {
+        return player;
     }
 }
