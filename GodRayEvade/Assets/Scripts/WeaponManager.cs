@@ -14,6 +14,8 @@ public class WeaponManager : NetworkedBehaviour
     public Material player1Material;
     public Material player2Material;
 
+    private GameObject spotLight;
+
     void Start()
     {
         if (IsServer)
@@ -55,12 +57,20 @@ public class WeaponManager : NetworkedBehaviour
     {
         if(IsServer)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            if (spotLight != null)
             {
-                agent.SetDestination(hit.point);
+                RaycastHit hit;
+                int layerMask = 1 << 10;
+                if (Physics.Raycast(spotLight.transform.position, spotLight.transform.forward, out hit, Mathf.Infinity, layerMask))
+                {
+                    agent.SetDestination(hit.point);
+                }
             }
         }
+    }
+
+    public void asignSpotLight(GameObject pSpotLight)
+    {
+        spotLight = pSpotLight;
     }
 }

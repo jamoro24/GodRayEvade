@@ -59,6 +59,7 @@ public class PlayerManager : NetworkedBehaviour
 
             GameObject weapon = Instantiate(weaponPrefab, Vector3.zero, Quaternion.identity);
             weapon.GetComponent<NetworkedObject>().Spawn();
+            weapon.GetComponent<WeaponManager>().asignSpotLight(spotLight);
         }
     }
 
