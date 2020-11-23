@@ -563,6 +563,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotlightPrefab: {fileID: 5455091564663690104, guid: dd8cc714e0b504816aa5d7e92019d1e0,
     type: 3}
+  weaponPrefab: {fileID: 6641081173737983586, guid: 91ca7aca52ae84aaa855f02408b05093,
+    type: 3}
+  player1Material: {fileID: 2100000, guid: d482813f6220a074192ced565b81ffb9, type: 2}
+  player2Material: {fileID: 2100000, guid: 9e8282021fce1e04e8981ef284c66472, type: 2}
 --- !u!1 &1787706699105482295
 GameObject:
   m_ObjectHideFlags: 0

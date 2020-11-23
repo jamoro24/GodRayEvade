@@ -10,9 +10,10 @@ public class PlayerManager : NetworkedBehaviour
     private GameObject camera2Pos;
     private GameObject player1Pos;
     private GameObject player2Pos;
-    private GameObject player1Weapon;
-    private GameObject player2Weapon;
     public GameObject spotlightPrefab;
+    public GameObject weaponPrefab;
+    public Material player1Material;
+    public Material player2Material;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,7 @@ public class PlayerManager : NetworkedBehaviour
         camera2Pos = GameObject.Find("Camera2Pos");
         player1Pos = GameObject.Find("Player1Pos");
         player2Pos = GameObject.Find("Player2Pos");
-        player1Weapon = GameObject.Find("Player1Weapon");
-        player2Weapon = GameObject.Find("Player2Weapon");
+        
         if (IsServer)
         {
             transform.position = player1Pos.transform.position;
@@ -39,8 +39,26 @@ public class PlayerManager : NetworkedBehaviour
 
         if (IsServer)
         {
-            GameObject go = Instantiate(spotlightPrefab, Vector3.zero, Quaternion.identity);
-            go.GetComponent<NetworkedObject>().SpawnWithOwnership(GetComponent<NetworkedObject>().OwnerClientId);
+            if (IsOwner)
+                GetComponentInChildren<Renderer>().material = player1Material;
+            else
+                GetComponentInChildren<Renderer>().material = player2Material;
+        }
+        else
+        {
+            if (IsOwner)
+                GetComponentInChildren<Renderer>().material = player2Material;
+            else
+                GetComponentInChildren<Renderer>().material = player1Material;
+        }
+
+        if (IsServer)
+        {
+            GameObject spotLight = Instantiate(spotlightPrefab, Vector3.zero, Quaternion.identity);
+            spotLight.GetComponent<NetworkedObject>().SpawnWithOwnership(GetComponent<NetworkedObject>().OwnerClientId);
+
+            GameObject weapon = Instantiate(weaponPrefab, Vector3.zero, Quaternion.identity);
+            weapon.GetComponent<NetworkedObject>().Spawn();
         }
     }
 
