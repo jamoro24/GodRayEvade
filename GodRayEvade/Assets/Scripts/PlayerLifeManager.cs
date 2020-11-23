@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MLAPI;
+using MLAPI.NetworkedVar;
 
 public class PlayerLifeManager : NetworkedBehaviour
 {
     public int maxHealth;
-    public int currentHealth;
     public int damage;
+    public NetworkedVar<int> currentHealth;
 
     public HealthBarPlayer healthBar;
 
@@ -16,7 +17,7 @@ public class PlayerLifeManager : NetworkedBehaviour
     {
         if(IsServer)
         {
-            currentHealth = maxHealth;
+            currentHealth.Value = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
         }
     }
@@ -37,8 +38,13 @@ public class PlayerLifeManager : NetworkedBehaviour
 
     void TakeDamage(int damages)
     {
-        currentHealth -= damages;
+        currentHealth.Value -= damages;
         
-        healthBar.SetHealth(currentHealth);
+        
+    }
+
+    void Update()
+    {
+        healthBar.SetHealth(currentHealth.Value);
     }
 }
