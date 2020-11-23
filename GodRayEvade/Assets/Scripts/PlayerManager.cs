@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : NetworkedBehaviour
 {
@@ -14,6 +15,9 @@ public class PlayerManager : NetworkedBehaviour
     public GameObject weaponPrefab;
     public Material player1Material;
     public Material player2Material;
+
+    private string PLAYER_NAME = "ME";
+    private string OTHER_NAME = "THE OTHER";
 
     // Start is called before the first frame update
     void Start()
@@ -40,16 +44,29 @@ public class PlayerManager : NetworkedBehaviour
         if (IsServer)
         {
             if (IsOwner)
+            {
                 GetComponentInChildren<Renderer>().material = player1Material;
+                GetComponentInChildren<Text>().text = PLAYER_NAME;
+            }
             else
+            {
                 GetComponentInChildren<Renderer>().material = player2Material;
+                GetComponentInChildren<Text>().text = OTHER_NAME;
+            }
+                
         }
         else
         {
             if (IsOwner)
+            {
                 GetComponentInChildren<Renderer>().material = player2Material;
+                GetComponentInChildren<Text>().text = OTHER_NAME;
+            }
             else
+            {
                 GetComponentInChildren<Renderer>().material = player1Material;
+                GetComponentInChildren<Text>().text = PLAYER_NAME;
+            }  
         }
 
         if (IsServer)
