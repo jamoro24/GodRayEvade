@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : NetworkedBehaviour
 {
-    private GameObject mainCamera;
+    private GameObject cameraWrapper;
     private GameObject camera1Pos;
     private GameObject camera2Pos;
     private GameObject player1Pos;
@@ -22,7 +22,7 @@ public class PlayerManager : NetworkedBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = GameObject.Find("MainCamera");
+        cameraWrapper = GameObject.Find("CameraWrapper");
         camera1Pos = GameObject.Find("Camera1Pos");
         camera2Pos = GameObject.Find("Camera2Pos");
         player1Pos = GameObject.Find("Player1Pos");
@@ -31,14 +31,14 @@ public class PlayerManager : NetworkedBehaviour
         if (IsServer)
         {
             transform.position = player1Pos.transform.position;
-            mainCamera.transform.position = camera1Pos.transform.position;
-            mainCamera.transform.rotation = camera1Pos.transform.rotation;
+            cameraWrapper.transform.position = camera1Pos.transform.position;
+            cameraWrapper.transform.rotation = camera1Pos.transform.rotation;
         }
         else
         {
             transform.position = player2Pos.transform.position;
-            mainCamera.transform.position = camera2Pos.transform.position;
-            mainCamera.transform.rotation = camera2Pos.transform.rotation;
+            cameraWrapper.transform.position = camera2Pos.transform.position;
+            cameraWrapper.transform.rotation = camera2Pos.transform.rotation;
         }
 
         if (IsServer)
@@ -77,11 +77,5 @@ public class PlayerManager : NetworkedBehaviour
             GameObject weapon = Instantiate(weaponPrefab, Vector3.zero, Quaternion.identity);
             weapon.GetComponent<NetworkedObject>().SpawnWithOwnership(GetComponent<NetworkedObject>().OwnerClientId);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
