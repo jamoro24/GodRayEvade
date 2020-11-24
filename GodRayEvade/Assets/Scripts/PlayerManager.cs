@@ -75,17 +75,7 @@ public class PlayerManager : NetworkedBehaviour
             spotLight.GetComponent<NetworkedObject>().SpawnWithOwnership(GetComponent<NetworkedObject>().OwnerClientId);
 
             GameObject weapon = Instantiate(weaponPrefab, Vector3.zero, Quaternion.identity);
-            weapon.GetComponent<NetworkedObject>().Spawn();
-            weapon.GetComponent<WeaponManager>().assignSpotLight(spotLight);
-
-            if(IsOwner)
-            {
-                weapon.GetComponent<WeaponManager>().assignPlayer(1);
-            }
-            else
-            {
-                weapon.GetComponent<WeaponManager>().assignPlayer(2);
-            }
+            weapon.GetComponent<NetworkedObject>().SpawnWithOwnership(GetComponent<NetworkedObject>().OwnerClientId);
         }
     }
 

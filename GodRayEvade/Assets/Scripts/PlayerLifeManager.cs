@@ -28,9 +28,9 @@ public class PlayerLifeManager : NetworkedBehaviour
         {
             if (col.gameObject.GetComponent<WeaponManager>())
             {
-                if(IsOwner && col.gameObject.GetComponent<WeaponManager>().getPlayer() == 1)
+                if(IsOwner && !col.gameObject.GetComponent<WeaponManager>().IsOwner)
                     TakeDamage(damage);
-                if (!IsOwner && col.gameObject.GetComponent<WeaponManager>().getPlayer() == 1)
+                if (!IsOwner && col.gameObject.GetComponent<WeaponManager>().IsOwner)
                     TakeDamage(damage);
             }
         }

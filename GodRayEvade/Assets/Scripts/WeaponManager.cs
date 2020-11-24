@@ -16,26 +16,20 @@ public class WeaponManager : NetworkedBehaviour
 
     private GameObject spotLight;
 
-    private int player;
-
     void Start()
     {
-        if (IsServer)
+        agent = GetComponent<NavMeshAgent>();
+
+        player1Weapon = GameObject.Find("Player1Weapon");
+        player2Weapon = GameObject.Find("Player2Weapon");
+
+        if (IsOwner)
         {
-            agent = GetComponent<NavMeshAgent>();
-
-            player1Weapon = GameObject.Find("Player1Weapon");
-            player2Weapon = GameObject.Find("Player2Weapon");
-
-            if (IsOwner)
-            {
-                transform.position = player1Weapon.transform.position;
-            }
-            else
-            {
-                transform.position = player2Weapon.transform.position;
-            }
-                
+            transform.position = player1Weapon.transform.position;
+        }
+        else
+        {
+            transform.position = player2Weapon.transform.position;
         }
 
         if (IsServer)
@@ -57,7 +51,7 @@ public class WeaponManager : NetworkedBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsServer)
+        if(IsOwner)
         {
             if (spotLight != null)
             {
@@ -68,21 +62,17 @@ public class WeaponManager : NetworkedBehaviour
                     agent.SetDestination(hit.point);
                 }
             }
+            else
+            {
+                SpotLightManager[] spotlights = GameObject.FindObjectsOfType<SpotLightManager>();
+                foreach(SpotLightManager tSpotLight in spotlights)
+                {
+                    if(tSpotLight.IsOwner)
+                    {
+                        spotLight = tSpotLight.gameObject;
+                    }
+                }
+            }
         }
-    }
-
-    public void assignSpotLight(GameObject pSpotLight)
-    {
-        spotLight = pSpotLight;
-    }
-
-    public void assignPlayer(int pPlayer)
-    {
-        player = pPlayer;
-    }
-
-    public int getPlayer()
-    {
-        return player;
     }
 }
