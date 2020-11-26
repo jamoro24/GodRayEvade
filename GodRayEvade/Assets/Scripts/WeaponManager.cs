@@ -25,11 +25,19 @@ public class WeaponManager : NetworkedBehaviour
 
         if (IsOwner)
         {
-            transform.position = player1Weapon.transform.position;
+            if (IsServer)
+            {
+                transform.position = player1Weapon.transform.position;
+            }
+            else
+            {
+                transform.position = player2Weapon.transform.position;
+            }
         }
         else
         {
-            transform.position = player2Weapon.transform.position;
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Rigidbody>().useGravity = false;
         }
 
         if (IsServer)

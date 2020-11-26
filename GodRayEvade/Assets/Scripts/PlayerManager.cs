@@ -27,18 +27,26 @@ public class PlayerManager : NetworkedBehaviour
         camera2Pos = GameObject.Find("Camera2Pos");
         player1Pos = GameObject.Find("Player1Pos");
         player2Pos = GameObject.Find("Player2Pos");
-        
-        if (IsServer)
+
+        if (IsOwner)
         {
-            transform.position = player1Pos.transform.position;
-            cameraWrapper.transform.position = camera1Pos.transform.position;
-            cameraWrapper.transform.rotation = camera1Pos.transform.rotation;
+            if (IsServer)
+            {
+                transform.position = player1Pos.transform.position;
+                cameraWrapper.transform.position = camera1Pos.transform.position;
+                cameraWrapper.transform.rotation = camera1Pos.transform.rotation;
+            }
+            else
+            {
+                transform.position = player2Pos.transform.position;
+                cameraWrapper.transform.position = camera2Pos.transform.position;
+                cameraWrapper.transform.rotation = camera2Pos.transform.rotation;
+            }
         }
         else
         {
-            transform.position = player2Pos.transform.position;
-            cameraWrapper.transform.position = camera2Pos.transform.position;
-            cameraWrapper.transform.rotation = camera2Pos.transform.rotation;
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Rigidbody>().useGravity = false;
         }
 
         if (IsServer)
