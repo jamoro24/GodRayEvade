@@ -12,7 +12,7 @@ public class PlayerLifeManager : NetworkedBehaviour
     public NetworkedVar<int> currentHealth;
 
     public HealthBarPlayer healthBar;
-
+    public GameObject endScreen;
     void Start()
     {
         if(IsServer)
@@ -32,6 +32,12 @@ public class PlayerLifeManager : NetworkedBehaviour
                     TakeDamage(damage);
                 if (!IsOwner && col.gameObject.GetComponent<WeaponManager>().IsOwner)
                     TakeDamage(damage);
+            }
+
+            if (currentHealth.Value <= 0)
+            {
+                endScreen.gameObject.SetActive(true);
+                
             }
         }
     }
