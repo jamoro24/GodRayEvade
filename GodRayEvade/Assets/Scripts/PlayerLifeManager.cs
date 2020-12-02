@@ -34,12 +34,7 @@ public class PlayerLifeManager : NetworkedBehaviour
                     TakeDamage(damage);
             }
 
-            if (currentHealth.Value <= 0)
-            {
-                endScreen = GameObject.Find("EndScreen");
-                endScreen.GetComponent<Canvas>().enabled = true;
-
-            }
+            
         }
     }
 
@@ -53,5 +48,14 @@ public class PlayerLifeManager : NetworkedBehaviour
     void Update()
     {
         healthBar.SetHealth(currentHealth.Value);
+        if(IsOwner)
+        {
+            if (currentHealth.Value <= 0)
+            {
+                endScreen = GameObject.Find("EndScreen");
+                endScreen.GetComponent<Canvas>().enabled = true;
+
+            }
+        }
     }
 }
