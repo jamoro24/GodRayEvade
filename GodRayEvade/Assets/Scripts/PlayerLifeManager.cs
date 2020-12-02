@@ -12,7 +12,7 @@ public class PlayerLifeManager : NetworkedBehaviour
     public NetworkedVar<int> currentHealth;
 
     public HealthBarPlayer healthBar;
-    public GameObject endScreen;
+    private GameObject endScreen;
     void Start()
     {
         if(IsServer)
@@ -36,8 +36,9 @@ public class PlayerLifeManager : NetworkedBehaviour
 
             if (currentHealth.Value <= 0)
             {
-                endScreen.gameObject.SetActive(true);
-                
+                endScreen = GameObject.Find("EndScreen");
+                endScreen.GetComponent<Canvas>().enabled = true;
+
             }
         }
     }

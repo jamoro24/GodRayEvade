@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MessageBufferSize: 5120
   MaxConnections: 100
-  ConnectAddress: 163.221.174.241
+  ConnectAddress: 163.221.174.207
   ConnectPort: 7777
   ServerListenPort: 7777
   ServerWebsocketListenPort: 8887
@@ -1600,10 +1600,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 107824694363044597, guid: 91323a6a599209e4faf5ad9122e0b447,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107824694363044597, guid: 91323a6a599209e4faf5ad9122e0b447,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 107824694363044597, guid: 91323a6a599209e4faf5ad9122e0b447,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1446290111}
     - target: {fileID: 107824694363044598, guid: 91323a6a599209e4faf5ad9122e0b447,
         type: 3}
       propertyPath: m_Name
-      value: End screen
+      value: EndScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 107824694363044598, guid: 91323a6a599209e4faf5ad9122e0b447,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107824694363044602, guid: 91323a6a599209e4faf5ad9122e0b447,
         type: 3}

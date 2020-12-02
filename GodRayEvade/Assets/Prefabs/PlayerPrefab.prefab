@@ -564,10 +564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
-  damage: 1
+  damage: 200
   healthBar: {fileID: 1787706699105482293}
-  endScreen: {fileID: 107824694363044598, guid: 91323a6a599209e4faf5ad9122e0b447,
-    type: 3}
 --- !u!1 &1787706699105482295
 GameObject:
   m_ObjectHideFlags: 0
