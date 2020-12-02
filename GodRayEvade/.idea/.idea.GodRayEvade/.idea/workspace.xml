@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5db08877-03ae-4d8c-a8fc-94cd60dcf888" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scene/NetworkTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/NetworkTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerLifeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerLifeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GodRayEvade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GodRayEvade/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerPrefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/Variation1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Variation1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,8 @@
       <updated>1606469587061</updated>
       <workItem from="1606469618375" duration="3941000" />
       <workItem from="1606714926140" duration="1477000" />
-      <workItem from="1606897106148" duration="1801000" />
+      <workItem from="1606897106148" duration="2531000" />
+      <workItem from="1606900636211" duration="599000" />
     </task>
     <servers />
   </component>
