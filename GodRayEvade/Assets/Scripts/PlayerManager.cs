@@ -15,6 +15,7 @@ public class PlayerManager : NetworkedBehaviour
     public GameObject weaponPrefab;
     public Material player1Material;
     public Material player2Material;
+    private GameObject collectableSpawner;
 
     private string PLAYER_NAME = "ME";
     private string OTHER_NAME = "THE OTHER";
@@ -27,6 +28,8 @@ public class PlayerManager : NetworkedBehaviour
         camera2Pos = GameObject.Find("Camera2Pos");
         player1Pos = GameObject.Find("Player1Pos");
         player2Pos = GameObject.Find("Player2Pos");
+        collectableSpawner = GameObject.Find("CollectableSpawner");
+        collectableSpawner.GetComponent<CollectableSpawner>().StartCollectableSpawner();
 
         if (IsOwner)
         {

@@ -9,6 +9,7 @@ public class PlayerLifeManager : NetworkedBehaviour
 {
     public int maxHealth;
     public int damage;
+    
     public NetworkedVar<int> currentHealth;
 
     public HealthBarPlayer healthBar;
@@ -22,6 +23,8 @@ public class PlayerLifeManager : NetworkedBehaviour
         }
     }
 
+    
+
     private void OnCollisionStay(Collision col)
     {
         if (IsServer)
@@ -33,16 +36,17 @@ public class PlayerLifeManager : NetworkedBehaviour
                 if (!IsOwner && col.gameObject.GetComponent<WeaponManager>().IsOwner)
                     TakeDamage(damage);
             }
-
-            
         }
+    }
+
+    public void HealPlayer(int amount)
+    {
+        currentHealth.Value += amount;
     }
 
     void TakeDamage(int damages)
     {
         currentHealth.Value -= damages;
-        
-        
     }
 
     void Update()
@@ -56,6 +60,11 @@ public class PlayerLifeManager : NetworkedBehaviour
                 endScreen.GetComponent<Canvas>().enabled = true;
 
             }
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            TakeDamage(200);
         }
     }
 }

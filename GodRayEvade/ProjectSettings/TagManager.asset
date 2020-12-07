@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ray1
+  - Collectable
   layers:
   - Default
   - TransparentFX

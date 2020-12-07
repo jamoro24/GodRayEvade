@@ -26,6 +26,9 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Billboard.cs" t="Include" />
+          <e p="Collectable.cs" t="Include" />
+          <e p="CollectableMove.cs" t="Include" />
+          <e p="CollectableSpawner.cs" t="Include" />
           <e p="EyeTracker.cs" t="Include" />
           <e p="HealthBarPlayer.cs" t="Include" />
           <e p="Movement.cs" t="Include" />

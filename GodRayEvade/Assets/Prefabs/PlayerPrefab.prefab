@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 4316950867808383934}
   m_Layer: 0
   m_Name: PlayerPrefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
-  damage: 200
+  damage: 1
+  healAmount: 100
   healthBar: {fileID: 1787706699105482293}
 --- !u!1 &1787706699105482295
 GameObject:
