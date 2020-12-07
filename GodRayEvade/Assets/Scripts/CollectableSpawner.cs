@@ -51,7 +51,7 @@ public class CollectableSpawner : NetworkedBehaviour
 	IEnumerator Wait()
 	{
 		Debug.Log("Test1");
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(10);
 		Debug.Log("Test2");
 		SpawnCollectable();
 	}

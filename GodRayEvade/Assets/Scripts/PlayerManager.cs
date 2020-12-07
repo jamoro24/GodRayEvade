@@ -29,7 +29,7 @@ public class PlayerManager : NetworkedBehaviour
         player1Pos = GameObject.Find("Player1Pos");
         player2Pos = GameObject.Find("Player2Pos");
         collectableSpawner = GameObject.Find("CollectableSpawner");
-        collectableSpawner.GetComponent<CollectableSpawner>().StartCollectableSpawner();
+        
 
         if (IsOwner)
         {
@@ -38,12 +38,14 @@ public class PlayerManager : NetworkedBehaviour
                 transform.position = player1Pos.transform.position;
                 cameraWrapper.transform.position = camera1Pos.transform.position;
                 cameraWrapper.transform.rotation = camera1Pos.transform.rotation;
+                collectableSpawner.GetComponent<CollectableSpawner>().StartCollectableSpawner();
             }
             else
             {
                 transform.position = player2Pos.transform.position;
                 cameraWrapper.transform.position = camera2Pos.transform.position;
                 cameraWrapper.transform.rotation = camera2Pos.transform.rotation;
+                collectableSpawner.GetComponent<CollectableSpawner>().StartCollectableSpawner();
             }
         }
         else

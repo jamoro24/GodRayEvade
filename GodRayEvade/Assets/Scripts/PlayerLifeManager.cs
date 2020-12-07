@@ -42,6 +42,10 @@ public class PlayerLifeManager : NetworkedBehaviour
     public void HealPlayer(int amount)
     {
         currentHealth.Value += amount;
+        if (currentHealth.Value >= 1000)
+        {
+            currentHealth.Value = 1000;
+        }
     }
 
     void TakeDamage(int damages)
